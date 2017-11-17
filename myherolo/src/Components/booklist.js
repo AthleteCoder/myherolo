@@ -31,22 +31,6 @@ class BookList extends Component {
       this.props.dispatch(showAddModal());
   }
 
-  renderBook(props){
-    return(
-    <tr>
-        <td>{props.Index+1}</td>
-        <td>{props.Book.Title}</td>
-        <td>{props.Book.Author}</td>
-        <td>{props.Book.Date}</td>
-        <td><ButtonToolbar>
-            <Button onClick={() => this.onClickDelete(props.Index)} bsStyle="danger"><Glyphicon glyph="trash" /> Delete</Button>
-            <Button onClick={() => this.onClickEdit(props.Book)} bsStyle="info"><Glyphicon glyph="pencil" /> Edit</Button>
-            </ButtonToolbar>
-        </td>
-      </tr>
-    );
-  }
-
   render() {
 
   const books = this.props.Fetched ? 

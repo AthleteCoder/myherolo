@@ -1,30 +1,36 @@
 import React, { Component } from 'react';
-import { Button,ButtonToolbar,Glyphicon} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 class Book extends Component {
 
   render() {
-      const { Index, Book, onDeleteClick, onClickEdit} = this.props;
+    const { Book, onDeleteClick, onClickEdit } = this.props;
     return (
-            <tr>
-                <td>{Index+1}</td>
-                <td>{Book.Title}</td>
-                <td>{Book.Author}</td>
-                <td>{Book.Date}</td>
-                <td><ButtonToolbar>
-                    <Button onClick={onDeleteClick} bsStyle="danger"><Glyphicon glyph="trash" /> Delete</Button>
-                    <Button onClick={onClickEdit} bsStyle="info"><Glyphicon glyph="pencil" /> Edit</Button>
-                    </ButtonToolbar>
-                </td>
-            </tr>
+      <div className="card">
+        <div className="card-image"></div>
+        <div className="card-info">
+          <div className="card-title">{Book.Title}</div>
+          <div className="card-detail">
+            <h1>
+              Book Author: {Book.Author}
+            </h1>
+            <p>Released Date: {Book.Date}</p>
+          </div>
+        </div>
+        <div className="card-social">
+          <ul>
+            <li onClick={onDeleteClick}><i className="fa fa-trash-o" aria-hidden="true"></i>Delete</li>
+            <li onClick={onClickEdit}><i className="fa fa-pencil" aria-hidden="true"></i>Edit</li>
+          </ul>
+        </div>
+      </div>
     );
   }
 }
 Book.PropTypes = {
-    Book: PropTypes.object.isRequired,
-    Index: PropTypes.number.isRequired,
-    onDeleteClick: PropTypes.func.isRequired,
-    onClickEdit: PropTypes.func.isRequired
-  };
+  Book: PropTypes.object.isRequired,
+  Index: PropTypes.number.isRequired,
+  onDeleteClick: PropTypes.func.isRequired,
+  onClickEdit: PropTypes.func.isRequired
+};
 export default Book;

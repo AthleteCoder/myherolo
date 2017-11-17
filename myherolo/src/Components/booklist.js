@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { fetchBooks } from '../store/actions';
-import { Button, Table, Panel,ButtonToolbar, Pager,Glyphicon} from 'react-bootstrap';
+import { Button, Panel,ButtonToolbar, Pager,Glyphicon} from 'react-bootstrap';
 import { showEditModal, showDeleteModal, showAddModal } from '../store/booksActions';
 import EditModal from '../Components/modals/editmodal';
 import Book from './book';
@@ -60,26 +60,15 @@ class BookList extends Component {
     return (
     <div>
     <Panel header="Books" bsStyle="primary">
-    <Table striped bordered condensed hover>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Date</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-        {books}
-    </tbody>
-  </Table>
+    <div className="card-container">
+      {books}
+  </div>
     <Pager>
       <Button onClick={this.onClickAdd} bsStyle="primary">+ ADD</Button>
     </Pager>
   </Panel>
   {this.props.editModal ? <EditModal Book={this.props.editBook}/> : null}
-    </div>
+</div>
     );
   }
 }

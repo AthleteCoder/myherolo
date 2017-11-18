@@ -56,7 +56,6 @@ class EditModal extends Component {
     }
     else{
         this.setState({Errors:Errors});
-        setTimeout(()=> this.setState({Errors:null}),10000);
     }
   }
 

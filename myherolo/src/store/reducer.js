@@ -13,6 +13,7 @@ const defaultState = {
 }
 
 export const reducer = (state = defaultState, action)=>{
+    console.log(state)
     switch(action.type){
 
         case booksActions.FETCHED:

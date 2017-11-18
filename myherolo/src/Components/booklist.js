@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { fetchBooks } from '../store/actions';
-import { Button, Panel,ButtonToolbar, Pager,Glyphicon} from 'react-bootstrap';
+import { Button, Pager} from 'react-bootstrap';
 import { showEditModal, showDeleteModal, showAddModal } from '../store/booksActions';
-import EditModal from '../Components/modals/editmodal';
 import Book from './book';
 
 class BookList extends Component {
     constructor(props){
         super(props);
-        this.renderBook = this.renderBook.bind(this);
         this.onClickEdit = this.onClickEdit.bind(this);
         this.onClickDelete = this.onClickDelete.bind(this);
         this.onClickAdd = this.onClickAdd.bind(this);
@@ -33,7 +31,7 @@ class BookList extends Component {
 
   render() {
 
-  const books = this.props.Fetched ? 
+  const books = this.props.BooksCollection ? 
   this.props.BooksCollection.map(
       (book,index) => 
       <Book key={index} Book={book} Index={index} 
@@ -42,17 +40,14 @@ class BookList extends Component {
     ): null;
 
     return (
-    <div>
-    <Panel header="Books" bsStyle="primary">
+    <div className="book-list">
     <div className="card-container">
       {books}
   </div>
     <Pager>
       <Button onClick={this.onClickAdd} bsStyle="primary">+ ADD</Button>
     </Pager>
-  </Panel>
-  {this.props.editModal ? <EditModal Book={this.props.editBook}/> : null}
-</div>
+  </div>
     );
   }
 }

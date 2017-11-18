@@ -54,7 +54,7 @@ class AddModal extends Component {
         else if(!isValidDateStr(selectedDate)){
             Errors.push('Proper Format date: dd/mm/yyy');
         }
-        if(CheckForDupTitles(Title,this.props.BooksCollection))
+        if(CheckForDupTitles(Title,this.props.BooksCollection) && Title != null)
             Errors.push('Title already exists!');
         if(Errors.length <= 0){
             const newTitle = TitleTransform(Title);
@@ -68,7 +68,6 @@ class AddModal extends Component {
         }
         else{
             this.setState({Errors:Errors});
-            setTimeout(()=> this.setState({Errors:null}),10000);
         }
     }
 

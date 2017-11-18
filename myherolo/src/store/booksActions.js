@@ -81,3 +81,10 @@ export function editBook(Book){
         payload: Book
     }
 }
+
+export function fetchError(err){
+    return {
+        type: FETCH_ERROR,
+        payload: err
+    }
+}

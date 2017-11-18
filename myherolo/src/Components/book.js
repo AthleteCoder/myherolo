@@ -19,8 +19,8 @@ class Book extends Component {
         </div>
         <div className="card-social">
           <ul>
-            <li onClick={onDeleteClick}><i className="fa fa-trash-o" aria-hidden="true"></i>Delete</li>
-            <li onClick={onClickEdit}><i className="fa fa-pencil" aria-hidden="true"></i>Edit</li>
+            <li onClick={onDeleteClick}><i className="fa fa-trash-o" aria-hidden="true"></i> Delete</li>
+            <li onClick={onClickEdit}><i className="fa fa-pencil" aria-hidden="true"></i> Edit</li>
           </ul>
         </div>
       </div>

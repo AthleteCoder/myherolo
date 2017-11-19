@@ -4,6 +4,7 @@ import BookList from './Components/booklist';
 import DeleteModal from './Components/modals/deletemodal';
 import AddModal from './Components/modals/addmodal';
 import EditModal from './Components/modals/editmodal';
+import FooterComponent from './Components/FooterComponent';
 import {connect} from 'react-redux';
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
       {this.props.deleteModal ? <DeleteModal /> : null}
       {this.props.addModal ? <AddModal /> : null}
       {this.props.editModal ? <EditModal Book={this.props.editBook}/> : null}
+      <FooterComponent />
       </div>
     );
   }

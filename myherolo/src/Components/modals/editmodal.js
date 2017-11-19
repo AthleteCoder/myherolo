@@ -42,7 +42,7 @@ class EditModal extends Component {
       Errors.push('Proper Format date: dd/mm/yyy');
     }
     else if(!isValidDateStr(startDate)){
-      Errors.push('Proper Format date: dd/mm/yyy');
+      Errors.push('Proper Format date: dd/mm/yyyy');
   }
     if(Errors.length <= 0){
       const newTitle = TitleTransform(Title);

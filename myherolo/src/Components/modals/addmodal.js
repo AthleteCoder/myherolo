@@ -49,12 +49,12 @@ class AddModal extends Component {
             Errors.push('Title name must be filled!');
         }
         if(selectedDate == null || selectedDate.length <= 0){
-            Errors.push('Proper Format date: dd/mm/yyy');
+            Errors.push('Proper Format date: dd/mm/yyyy');
         }
         else if(!isValidDateStr(selectedDate)){
-            Errors.push('Proper Format date: dd/mm/yyy');
+            Errors.push('Proper Format date: dd/mm/yyyy');
         }
-        if(CheckForDupTitles(Title,this.props.BooksCollection) && Title != null)
+        if(Title != null && CheckForDupTitles(Title,this.props.BooksCollection))
             Errors.push('Title already exists!');
         if(Errors.length <= 0){
             const newTitle = TitleTransform(Title);

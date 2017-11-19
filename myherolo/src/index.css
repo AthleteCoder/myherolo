@@ -136,6 +136,7 @@ body {
 .book-list{
   background: rgba(0, 204, 255, 0.233);
   border: 1px solid black;
+  margin-bottom: 60px;
 }
 
 @font-face {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Modal, FormGroup, ControlLabel, HelpBlock, FormControl,Alert} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import { closeEditModal, editBook } from '../../store/booksActions';
-import { isValidDateStr, TitleTransform } from '../../helpers/fncshelpers';
+import { isValidDateStr, TitleTransform, CheckForDupTitles } from '../../helpers/fncshelpers';
 
 class EditModal extends Component {
 
@@ -39,11 +39,15 @@ class EditModal extends Component {
         Errors.push('Title name must be filled!');
     }
     if(startDate == null || startDate.length <= 0){
-      Errors.push('Proper Format date: dd/mm/yyy');
+      Errors.push('Proper Format date: dd/mm/yyyy');
     }
     else if(!isValidDateStr(startDate)){
       Errors.push('Proper Format date: dd/mm/yyyy');
   }
+
+  if(Title != null && CheckForDupTitles(Title,this.props.BooksCollection))
+    Errors.push('Title already exists!');
+
     if(Errors.length <= 0){
       const newTitle = TitleTransform(Title);
         const Book = {

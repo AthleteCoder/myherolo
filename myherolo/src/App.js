@@ -12,10 +12,10 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-      <div className="neondiv">
-      <div className="neon">Books</div>
-      <div className="flux">Application</div>
-      </div>
+        <div className="neondiv">
+          <div className="neon">Books</div>
+          <div className="flux">Application</div>
+        </div>
       {this.props.Errors ? <p>{this.props.Errors}</p> : null}
       <BookList />
       {this.props.deleteModal ? <DeleteModal /> : null}
